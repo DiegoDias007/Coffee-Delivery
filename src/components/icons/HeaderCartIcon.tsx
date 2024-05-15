@@ -1,4 +1,4 @@
-function CartIcon() {
+function HeaderCartIcon() {
 	return (
 		<svg
 			width="22"
@@ -15,4 +15,4 @@ function CartIcon() {
 	);
 }
 
-export default CartIcon;
+export default HeaderCartIcon;
