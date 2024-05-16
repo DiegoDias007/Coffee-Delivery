@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import Logo from "./icons/LogoIcon";
-import Box from "./Box";
+import Logo from "../icons/LogoIcon";
+import Box from "../Box";
 import HeaderButton from "./HeaderButton";
-import LocationIcon from "./icons/LocationIcon";
-import HeaderCartIcon from "./icons/HeaderCartIcon";
+import LocationIcon from "../icons/LocationIcon";
+import HeaderCartIcon from "../icons/HeaderCartIcon";
 
 const StyledHeader = styled.header`
   display: flex;

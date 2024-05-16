@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 const Image = styled.img`
-  @media (max-width: 1150px) {
-    display: none;
-  }
+
 `
 
 function HomeLogo() {
