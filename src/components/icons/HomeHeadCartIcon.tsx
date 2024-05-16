@@ -1,4 +1,4 @@
-function HomeCartIcon() {
+function HomeHeadCartIcon() {
 	return (
 		<svg
 			width="32"
@@ -16,4 +16,4 @@ function HomeCartIcon() {
 	);
 }
 
-export default HomeCartIcon;
+export default HomeHeadCartIcon;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Box from "../Box";
-import HomeCartIcon from "../icons/HomeCartIcon";
+import HomeHeadCartIcon from "../icons/HomeHeadCartIcon";
 import BoxIcon from "../icons/BoxIcon";
 import ClockIcon from "../icons/ClockIcon";
 import CoffeeIcon from "../icons/CoffeeIcon";
@@ -25,11 +25,11 @@ const Text = styled.span`
   line-height: 20px;
 `;
 
-function HomeGrid() {
+function HomeHeadGrid() {
   return (
     <Grid>
       <Box direction="row" gap="12px" align="center">
-        <HomeCartIcon />
+        <HomeHeadCartIcon />
         <Text>Compra simples e segura</Text>
       </Box>
       <Box direction="row" gap="12px" align="center">
@@ -48,4 +48,4 @@ function HomeGrid() {
   );
 }
 
-export default HomeGrid;
+export default HomeHeadGrid;

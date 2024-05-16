@@ -1,8 +1,13 @@
 import styled from "styled-components";
 import Box from "../components/Box";
-import HomeGrid from "../components/Home/HomeGrid";
+import HomeHeadGrid from "../components/Home/HomeHeadGrid";
 import HomeMainTitle from "../components/Home/HomeMainTitle";
 import HomeLogo from "../components/Home/HomeLogo";
+import HomeMainGrid from "../components/Home/HomeMainGrid";
+import { useEffect, useState } from "react";
+import { Coffee } from "../@types/coffee.type";
+import { getData } from "../data/api";
+import HomeCoffeeCard from "../components/Home/HomeCoffeeCard";
 
 const StyledHome = styled.div`
   display: flex;
@@ -38,6 +43,16 @@ const MainContainer = styled.div`
 `
 
 function Home() {
+  const [data, setData] = useState<Coffee[]>();
+  
+  useEffect(() => {
+    async function getTempData() {
+      const tempData = await getData();
+      setData(tempData);
+    }
+    getTempData();
+  }, [data])
+  
   return (
     <StyledHome>
       <HeadContainer>
@@ -46,12 +61,23 @@ function Home() {
           gap="40px"
         >
           <HomeMainTitle />
-          <HomeGrid />
+          <HomeHeadGrid />
         </Box>
         <HomeLogo />
       </HeadContainer>
       <MainContainer>
         <h1>Nossos Cafés</h1>
+        <HomeMainGrid>
+          {data?.map((coffee) => {
+            return <HomeCoffeeCard 
+                      id={coffee.id}
+                      name={coffee.name}
+                      description={coffee.description}
+                      src={coffee.src}
+                      price={coffee.price}
+                    />
+          })}
+        </HomeMainGrid>
       </MainContainer>
     </StyledHome>
   );
