@@ -4,6 +4,7 @@ import styled from "styled-components";
 import HomePrice from "./HomePrice";
 import HomeCount from "./HomeCount";
 import HomeMainCartIcon from "../icons/HomeMainCartIcon";
+import { useCart } from "../../hooks/useCart";
 
 const StyledHomeCoffeeCard = styled.div`
   display: flex;
@@ -58,10 +59,19 @@ const BottomRightContainer = styled.div`
 
 function HomeCoffeeCard({ id, name, description, src, price }: Coffee) {
   const [count, setCount] = useState<number>(1);
+  const { addCoffee } = useCart(); 
   
   function handleClick() {
-    // todo: add item to the cart.
-    {id}
+    const newCoffee = {
+      id,
+      name,
+      description,
+      src,
+      price,
+      count,
+    }
+    addCoffee(newCoffee);
+    setCount(1);
   }
 
   return (

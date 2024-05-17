@@ -13,6 +13,7 @@ const StyledHome = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 32px;
+  gap: 20px;
   width: 100%;
   flex: 1;
 `
@@ -70,6 +71,7 @@ function Home() {
         <HomeMainGrid>
           {data?.map((coffee) => {
             return <HomeCoffeeCard 
+                      key={coffee.id}
                       id={coffee.id}
                       name={coffee.name}
                       description={coffee.description}

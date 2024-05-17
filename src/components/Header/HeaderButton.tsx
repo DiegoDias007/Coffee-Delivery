@@ -3,10 +3,10 @@ import styled from "styled-components";
 type HeaderButtonType = {
   color?: string;
   backgroundColor?: string;
-  onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 const HeaderButton = styled.div<HeaderButtonType>`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
