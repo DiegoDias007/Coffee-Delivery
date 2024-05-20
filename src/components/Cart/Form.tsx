@@ -15,11 +15,11 @@ const FormGrid = styled.div`
 function Form() {
   return (
     <FormGrid>
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input colStart="1" colEnd="3"/>
+      <Input placeholder="CEP"/>
+      <Input placeholder="Rua"/>
+      <Input placeholder="Número"/>
+      <Input placeholder="Complemento"/>
+      <Input placeholder="Nome"/>
     </FormGrid>
   );
 }

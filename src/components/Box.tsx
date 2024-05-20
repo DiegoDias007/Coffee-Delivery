@@ -5,6 +5,7 @@ type BoxType = {
 	gap: string;
   align?: string;
   justify?: string;
+  width?: string;
 };
 
 const Box = styled.div<BoxType>`
@@ -13,6 +14,7 @@ const Box = styled.div<BoxType>`
 	justify-content: ${(props) => props.justify};
 	flex-direction: ${(props) => props.direction};
 	gap: ${(props) => props.gap};
+  width: ${(props) => props.width};
 `;
 
 export default Box;

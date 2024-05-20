@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CartForm from "../components/Cart/CartForm";
+import PaymentCard from "../components/Cart/PaymentCard";
 
 const StyledCart = styled.div`
   flex: 1;
@@ -48,6 +49,7 @@ function Cart() {
         <LeftContainer>
           <Title>Complete seu pedido</Title>
           <CartForm />
+          <PaymentCard />
         </LeftContainer>
         <RightContainer>
           <Title>Cafés selecionados</Title>
