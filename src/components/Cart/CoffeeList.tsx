@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../../hooks/useCart"
 import CartCoffeeCard from "./CartCoffeeCard";
 import styled from "styled-components";
@@ -11,8 +12,13 @@ const StyledCoffeeList = styled.div`
 `
 
 function CoffeeList() {
-  const { cart } = useCart();
-  
+  const { cart, total } = useCart();
+  const navigate = useNavigate();
+
+  if (total == 0) {
+    navigate("/");
+  }
+
   return (
     <StyledCoffeeList>
       {cart.map((coffee) => {

@@ -54,6 +54,12 @@ function Header() {
   const { total } = useCart();
   const navigate = useNavigate();
 
+  function handleClick() {
+    if (total > 0) {
+      navigate("cart");
+    }
+  }
+
   return (
     <StyledHeader>
       <Container>
@@ -63,7 +69,7 @@ function Header() {
             <LocationIcon />
             <span>João Pessoa, PB</span>
           </HeaderButton>
-          <HeaderButton backgroundColor="#F1E9C9" onClick={() => navigate("cart")}>
+          <HeaderButton backgroundColor="#F1E9C9" onClick={handleClick}>
             {total > 0 ? (
               <CartCount>
                 <CountText>
