@@ -24,7 +24,7 @@ function HomePrice({ price }: HomePriceProps) {
   return (
     <div>
       <RS>R$</RS>
-      <Price>{price + '0'}</Price>
+      <Price>{(price).toFixed(2)}</Price>
   </div>
   );
 }

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Box from "../components/Box";
+import Box from "../components/Reusable/Box";
 import HomeHeadGrid from "../components/Home/HomeHeadGrid";
 import HomeMainTitle from "../components/Home/HomeMainTitle";
 import HomeLogo from "../components/Home/HomeLogo";

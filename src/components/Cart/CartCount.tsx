@@ -15,16 +15,16 @@ const StyledHomeCount = styled.div`
 
 interface HomeCountProps {
   count: number;
-  setCount: React.Dispatch<React.SetStateAction<number>>;
+  updateCount: (newCount: number) => void;
 }
 
-function HomeCount({ count, setCount }: HomeCountProps) {
+function CartCount({ count, updateCount }: HomeCountProps) {
   
   function changeCount(type: string) {
     if (type === "minus") {
-      count > 1 ? setCount(count - 1) : "";
+      count > 1 ? updateCount(count - 1) : "";
     } else if (type === "plus") {
-      count < 9 ? setCount(count + 1) : "";
+      count < 9 ? updateCount(count + 1) : "";
     } 
 
   }
@@ -38,4 +38,4 @@ function HomeCount({ count, setCount }: HomeCountProps) {
   )
 }
 
-export default HomeCount;
+export default CartCount;

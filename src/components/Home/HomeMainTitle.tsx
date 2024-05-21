@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Box from "../Box";
+import Box from "../Reusable/Box";
 
 const Title = styled.h1`
   font-family: "Baloo 2", sans-serif;

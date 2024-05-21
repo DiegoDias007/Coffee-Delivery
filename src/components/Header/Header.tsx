@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Logo from "../icons/LogoIcon";
-import Box from "../Box";
+import Box from "../Reusable/Box";
 import HeaderButton from "./HeaderButton";
 import LocationIcon from "../icons/LocationIcon";
 import HeaderCartIcon from "../icons/HeaderCartIcon";

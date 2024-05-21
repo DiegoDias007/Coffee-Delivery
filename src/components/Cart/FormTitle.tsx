@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Box from "../Box";
+import Box from "../Reusable/Box";
 import CartLocationIcon from "../icons/CartLocationIcon";
 
 const H1 = styled.h1`

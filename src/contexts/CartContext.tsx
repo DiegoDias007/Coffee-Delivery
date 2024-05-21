@@ -6,6 +6,7 @@ type CartContextType = {
 	cart: CoffeeWithCount[];
   total: number;
 	addCoffee: (coffee: CoffeeWithCount) => void;
+  updateCount: (coffeeId: number, newCount: number) => void;
 	removeCoffee: (coffeeId: number) => void;
 };
 
@@ -13,6 +14,7 @@ const CartContext = createContext<CartContextType>({
 	cart: [],
   total: 0,
 	addCoffee: () => {},
+  updateCount: () => {},
 	removeCoffee: () => {},
 });
 
@@ -39,6 +41,14 @@ function CartProvider({ children }: CartProviderProps) {
     updateLocalStorage(newCart);
 	}
 
+  function updateCount(coffeeId: number, newCount: number) {
+    const newCart = cart.map((c) => {
+      return c.id === coffeeId ? {...c, count: newCount} : c;
+    })
+    setCart(newCart);
+		updateLocalStorage(newCart);
+  }
+
 	function removeCoffee(coffeeId: number) {
 		const newCart = cart.filter((coffee) => coffee.id != coffeeId);
 		setCart(newCart);
@@ -49,6 +59,7 @@ function CartProvider({ children }: CartProviderProps) {
 		cart,
     total,
 		addCoffee,
+    updateCount,
 		removeCoffee,
 	};
 

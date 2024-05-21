@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import PaymentTitle from "./PaymentTitle"
-import Box from "../Box"
+import Box from "../Reusable/Box"
 import Buttons from "./Buttons"
 
 const StyledPaymentCard = styled.div`

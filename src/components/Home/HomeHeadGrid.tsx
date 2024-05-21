@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Box from "../Box";
+import Box from "../Reusable/Box";
 import HomeHeadCartIcon from "../icons/HomeHeadCartIcon";
 import BoxIcon from "../icons/BoxIcon";
 import ClockIcon from "../icons/ClockIcon";

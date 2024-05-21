@@ -1,4 +1,6 @@
+import BankIcon from "../icons/BankIcon";
 import CardIcon from "../icons/CardIcon";
+import MoneyIcon from "../icons/MoneyIcon";
 import PaymentButton from "./PaymentButton";
 
 function Buttons() {
@@ -9,11 +11,11 @@ function Buttons() {
 				<span>CARTÃO DE CRÉDITO</span>
 			</PaymentButton>
 			<PaymentButton>
-				<CardIcon />
+				<BankIcon />
 				<span>CARTÃO DE DÉBITO</span>
 			</PaymentButton>
 			<PaymentButton>
-				<CardIcon />
+				<MoneyIcon />
 				<span>DINHEIRO</span>
 			</PaymentButton>
 		</>
