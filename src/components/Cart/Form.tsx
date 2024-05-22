@@ -7,7 +7,7 @@ const FormGrid = styled.div`
   gap: 10px;
   width: 100%;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1120px) {
     grid-template-columns: 1fr;
   }
 `;

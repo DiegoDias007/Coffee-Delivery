@@ -16,6 +16,10 @@ const Container = styled.div`
   width: 100%;
   margin: 0px 20px;
   gap: 30px;
+
+  @media (max-width: 920px) {
+    flex-direction: column;
+  }
 `
 
 const LeftContainer = styled.div`

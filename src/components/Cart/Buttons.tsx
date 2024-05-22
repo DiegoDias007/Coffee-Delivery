@@ -13,13 +13,13 @@ function Buttons() {
         active={active === "credit"} handleClick={() => setActive("credit")}
       >
 				<CardIcon />
-				<span>CARTÃO DE CRÉDITO</span>
+				<span>CRÉDITO</span>
 			</PaymentButton>
 			<PaymentButton 
         active={active === "debit"} handleClick={() => setActive("debit")}
       >
 				<BankIcon />
-				<span>CARTÃO DE DÉBITO</span>
+				<span>DÉBITO</span>
 			</PaymentButton>
 			<PaymentButton 
         active={active === "money"} handleClick={() => setActive("money")}
