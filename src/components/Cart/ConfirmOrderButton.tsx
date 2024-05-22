@@ -10,6 +10,10 @@ const ConfirmOrderButton = styled.button`
   width: 100%;
   cursor: pointer;
   background-color: #DBAC2C;
+
+  &:hover {
+    background-color: #C47F17;
+  }
 `
 
 export default ConfirmOrderButton;

@@ -1,6 +1,6 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
-const StyledPaymentButton = styled.button`
+const StyledPaymentButton = styled.button<{active: boolean}>`
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -11,6 +11,8 @@ const StyledPaymentButton = styled.button`
   gap: 12px;
   width: 100%;
   background-color: #E6E5E5;
+
+  ${(props) => props.active && activeStyles}
   
   // Text
   font-size: 11px;
@@ -18,19 +20,28 @@ const StyledPaymentButton = styled.button`
   line-height: 19.2px;
   color: #574F4D;
 
-  &:hover {
-    color: #403937;
-    background-color: #D7D5D5;
-  }
+  ${(props) => !props.active && css`
+    &:hover {
+      color: #403937;
+      background-color: #D7D5D5;
+    }
+  `}
+`
+
+const activeStyles = css`
+  background-color: #EBE5F9;
+  border: 1px solid #8047F8;
 `
 
 interface PaymentButtonInterface { 
-  children: React.ReactNode
+  children: React.ReactNode;
+  active: boolean;
+  handleClick: () => void;
 }
 
-function PaymentButton({ children }: PaymentButtonInterface) {
+function PaymentButton({ children, active, handleClick }: PaymentButtonInterface) {
   return (
-    <StyledPaymentButton>
+    <StyledPaymentButton active={active} onClick={handleClick}>
       {children}
     </StyledPaymentButton>
   )

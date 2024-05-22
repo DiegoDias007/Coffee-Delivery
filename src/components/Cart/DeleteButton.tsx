@@ -10,6 +10,10 @@ const StyledDeleteButton = styled.div`
   gap: 4px;
   cursor: pointer;
   background-color: #E6E5E5;
+
+  &:hover {
+    background-color: #D7D5D5;
+  }
 `
 
 const Text = styled.span`
