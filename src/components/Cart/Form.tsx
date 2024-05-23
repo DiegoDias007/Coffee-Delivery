@@ -3,6 +3,7 @@ import Input from "./Input";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "sonner";
 
 const FormGrid = styled.form`
   display: grid;
@@ -47,6 +48,11 @@ function Form({ activePayment }: FormProps) {
   });
 
   function onSubmit(data: NewOrder) {
+    if (!activePayment) {
+      toast.error("Nenhum método de pagamento selecionado.");
+      return;
+    } 
+    
     const newOrder = {
       ...data,
       payment: activePayment

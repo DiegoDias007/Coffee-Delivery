@@ -5,6 +5,7 @@ import HomePrice from "./HomePrice";
 import HomeCount from "./HomeCount";
 import HomeMainCartIcon from "../icons/HomeMainCartIcon";
 import { useCart } from "../../hooks/useCart";
+import { toast } from "sonner";
 
 const StyledHomeCoffeeCard = styled.div`
   display: flex;
@@ -72,6 +73,7 @@ function HomeCoffeeCard({ id, name, description, src, price }: Coffee) {
     }
     addCoffee(newCoffee);
     setCount(1);
+    toast.success(`${newCoffee.name} adicionado ao carrinho.`)
   }
 
   return (
