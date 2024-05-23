@@ -29,7 +29,10 @@ function Summary() {
     <StyledSummary>
       <CoffeeList />
       <PricesSummary />
-      <ConfirmOrderButton>
+      <ConfirmOrderButton
+        type="submit"
+        form="order"
+      >
         <ButtonText>
           CONFIRMAR PEDIDO
         </ButtonText>

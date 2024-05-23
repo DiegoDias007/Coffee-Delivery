@@ -13,11 +13,15 @@ const StyledCartForm = styled.div`
   background-color: #F3F2F2;
 `
 
-function CartForm() {
+interface CartFormProps {
+  activePayment: string;
+}
+
+function CartForm({ activePayment }: CartFormProps) {
   return (
     <StyledCartForm>
       <FormTitle />
-      <Form />
+      <Form activePayment={activePayment}/>
     </StyledCartForm>
   );
 }

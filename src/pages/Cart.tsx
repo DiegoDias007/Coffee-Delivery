@@ -2,6 +2,7 @@ import styled from "styled-components";
 import CartForm from "../components/Cart/CartForm";
 import PaymentCard from "../components/Cart/PaymentCard";
 import Summary from "../components/Cart/Summary";
+import { useState } from "react";
 
 const StyledCart = styled.div`
   flex: 1;
@@ -48,13 +49,20 @@ const Title = styled.h1`
 `
 
 function Cart() {
+  const [activePayment, setActivePayment] = useState<string>("");
+
   return (
     <StyledCart>
       <Container>
         <LeftContainer>
           <Title>Complete seu pedido</Title>
-          <CartForm />
-          <PaymentCard />
+          <CartForm 
+            activePayment={activePayment}
+          />
+          <PaymentCard 
+            activePayment={activePayment}
+            setActivePayment={setActivePayment}
+          />
         </LeftContainer>
         <RightContainer>
           <Title>Cafés selecionados</Title>

@@ -1,28 +1,31 @@
-import { useState } from "react";
 import BankIcon from "../icons/BankIcon";
 import CardIcon from "../icons/CardIcon";
 import MoneyIcon from "../icons/MoneyIcon";
 import PaymentButton from "./PaymentButton";
 
-function Buttons() {
-	const [active, setActive] = useState<string>("");
+interface ButtonsProps {
+  activePayment: string;
+  setActivePayment: React.Dispatch<React.SetStateAction<string>>;
+}
+
+function Buttons({ activePayment, setActivePayment }: ButtonsProps) {
 
   return (
 		<>
 			<PaymentButton 
-        active={active === "credit"} handleClick={() => setActive("credit")}
+        active={activePayment === "credit"} handleClick={() => setActivePayment("credit")}
       >
 				<CardIcon />
 				<span>CRÉDITO</span>
 			</PaymentButton>
 			<PaymentButton 
-        active={active === "debit"} handleClick={() => setActive("debit")}
+        active={activePayment === "debit"} handleClick={() => setActivePayment("debit")}
       >
 				<BankIcon />
 				<span>DÉBITO</span>
 			</PaymentButton>
 			<PaymentButton 
-        active={active === "money"} handleClick={() => setActive("money")}
+        active={activePayment === "money"} handleClick={() => setActivePayment("money")}
       >
 				<MoneyIcon />
 				<span>DINHEIRO</span>

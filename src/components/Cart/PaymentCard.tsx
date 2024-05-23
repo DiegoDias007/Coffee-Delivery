@@ -13,7 +13,12 @@ const StyledPaymentCard = styled.div`
   background-color: #F3F2F2;
 `
 
-function PaymentCard() {
+interface PaymentCardProps {
+  activePayment: string;
+  setActivePayment: React.Dispatch<React.SetStateAction<string>>;
+}
+
+function PaymentCard({ activePayment, setActivePayment }: PaymentCardProps) {
   return (
     <StyledPaymentCard>
       <PaymentTitle />
@@ -23,7 +28,10 @@ function PaymentCard() {
         align="center"
         width="100%"
       >
-        <Buttons />
+        <Buttons 
+          activePayment={activePayment}
+          setActivePayment={setActivePayment}
+        />
       </Box>
     </StyledPaymentCard>
   )
