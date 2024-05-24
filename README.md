@@ -1,30 +1,20 @@
-# React + TypeScript + Vite
+# Deployment
+https://coffee-delivery-app-net.netlify.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Features
+- [X] Listing of available products (coffees) for purchase
+- [X] Adding a specific quantity of items to the cart
+- [X] Increasing or decreasing the quantity of items in the cart
+- [X] Removing items from the cart
+- [X] Form for the user to fill out their address
+- [X] Form validation 
+- [X] Displaying the total number of items in the cart in the Header
+- [X] Displaying the total value of the sum of items in the cart multiplied by the value
+- [X] Responsive design for all devices
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+![image](https://github.com/DiegoDias007/Coffee-Delivery/assets/127633385/cc193f17-72f9-44b3-b35e-8ea4320932a8)
+![image](https://github.com/DiegoDias007/Coffee-Delivery/assets/127633385/11262052-535b-4d6c-9ef5-55f262187269)
+![image](https://github.com/DiegoDias007/Coffee-Delivery/assets/127633385/617ea534-1d7f-44ee-9a12-899b82d67c29)
+![image](https://github.com/DiegoDias007/Coffee-Delivery/assets/127633385/89d5425e-01ff-4c1c-a077-a52a1ddc268c)
+![image](https://github.com/DiegoDias007/Coffee-Delivery/assets/127633385/f2b5ac7e-f034-4843-ab5c-16189deadf3a)
+![image](https://github.com/DiegoDias007/Coffee-Delivery/assets/127633385/90e96830-9cb9-4b18-aeb4-578f009152a0)
