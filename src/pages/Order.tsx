@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Box from "../components/Reusable/Box";
 import OrderCard from "../components/Order/OrderCard";
+import OrderLogo from "../components/Order/OrderLogo";
 
 const StyledOrder = styled.div`
   flex: 1;
@@ -52,7 +53,7 @@ function Order() {
         </Box>
         <InsideContainer>
           <OrderCard />
-          <img src="order-logo.png" width="460px" height="270px"></img>
+          <OrderLogo />
         </InsideContainer>
       </Container>
     </StyledOrder>
