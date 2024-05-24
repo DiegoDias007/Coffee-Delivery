@@ -1,73 +1,82 @@
-import { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { CoffeeWithCount } from "../@types/coffee-with-count.type";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 type CartContextType = {
-	cart: CoffeeWithCount[];
+  cart: CoffeeWithCount[];
   total: number;
-	addCoffee: (coffee: CoffeeWithCount) => void;
+  addCoffee: (coffee: CoffeeWithCount) => void;
   updateCount: (coffeeId: number, newCount: number) => void;
-	removeCoffee: (coffeeId: number) => void;
+  removeCoffee: (coffeeId: number) => void;
+  clearCart: () => void;
 };
 
 const CartContext = createContext<CartContextType>({
-	cart: [],
+  cart: [],
   total: 0,
-	addCoffee: () => {},
+  addCoffee: () => {},
   updateCount: () => {},
-	removeCoffee: () => {},
+  removeCoffee: () => {},
+  clearCart: () => {},
 });
 
 interface CartProviderProps {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 function CartProvider({ children }: CartProviderProps) {
-	const { value, updateLocalStorage } = useLocalStorage<CoffeeWithCount[]>("cart");
-	const [cart, setCart] = useState<CoffeeWithCount[]>(value);
-  let total = 0; cart.forEach(c => total += c.count);
+  const { value, updateLocalStorage } = useLocalStorage<CoffeeWithCount[]>("cart");
+  const [cart, setCart] = useState<CoffeeWithCount[]>(value || []);
 
-	function addCoffee(coffee: CoffeeWithCount) {
-		const isCoffeeInCart = cart.find((c) => c.id === coffee.id);
-    let newCart: CoffeeWithCount[];
+  useEffect(() => {
+    updateLocalStorage(cart);
+  }, [cart, updateLocalStorage]);
+
+  const addCoffee = (coffee: CoffeeWithCount) => {
+    const isCoffeeInCart = cart.find((c) => c.id === coffee.id);
     if (!isCoffeeInCart) {
-      newCart = [...cart, coffee];
+      setCart([...cart, coffee]);
     } else {
-      newCart = cart.map((c) => {
-        return c.id === coffee.id ? {...c, count: c.count + coffee.count} : c;
-      })
-    }
+      const newCart = cart.map((c) =>
+        c.id === coffee.id ? { ...c, count: c.count + coffee.count } : c
+    );
     setCart(newCart);
-    updateLocalStorage(newCart);
-	}
-
-  function updateCount(coffeeId: number, newCount: number) {
-    const newCart = cart.map((c) => {
-      return c.id === coffeeId ? {...c, count: newCount} : c;
-    })
-    setCart(newCart);
-		updateLocalStorage(newCart);
   }
+};
 
-	function removeCoffee(coffeeId: number) {
-		const newCart = cart.filter((coffee) => coffee.id != coffeeId);
-		setCart(newCart);
-		updateLocalStorage(newCart);
-	}
+const calculateTotal = () => {
+  return cart.reduce((acc, coffee) => acc + coffee.count, 0);
+};
+  const updateCount = (coffeeId: number, newCount: number) => {
+    const newCart = cart.map((c) =>
+      c.id === coffeeId ? { ...c, count: newCount } : c
+    );
+    setCart(newCart);
+  };
 
-	const providerValue = {
-		cart,
-    total,
-		addCoffee,
+  const removeCoffee = (coffeeId: number) => {
+    const newCart = cart.filter((coffee) => coffee.id !== coffeeId);
+    setCart(newCart);
+  };
+
+  const clearCart = () => {
+    setCart([]);
+  };
+
+  const providerValue = {
+    cart,
+    total: calculateTotal(),
+    addCoffee,
     updateCount,
-		removeCoffee,
-	};
+    removeCoffee,
+    clearCart,
+  };
 
-	return (
-		<CartContext.Provider value={providerValue}>
-			{children}
-		</CartContext.Provider>
-	);
+  return (
+    <CartContext.Provider value={providerValue}>
+      {children}
+    </CartContext.Provider>
+  );
 }
 
 export { CartContext, CartProvider };

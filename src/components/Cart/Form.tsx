@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { NewOrder, newOrderSchema } from "../../@types/new-order.type";
 import { useOrder } from "../../hooks/useOrder";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../../hooks/useCart";
 
 const FormGrid = styled.form`
   display: grid;
@@ -38,6 +39,7 @@ function Form({ activePayment }: FormProps) {
     resolver: zodResolver(newOrderSchema),
   });
   const { setOrder } = useOrder();
+  const { clearCart } = useCart();
   const navigate = useNavigate();
 
   function onSubmit(data: NewOrder) {
@@ -51,6 +53,7 @@ function Form({ activePayment }: FormProps) {
       payment: activePayment
     }
     setOrder(newOrder);
+    clearCart();
     navigate("/order");
   }
 
