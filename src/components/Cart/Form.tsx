@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import Input from "./Input";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
+import { NewOrder, newOrderSchema } from "../../@types/new-order.type";
+import { useOrder } from "../../hooks/useOrder";
+import { useNavigate } from "react-router-dom";
 
 const FormGrid = styled.form`
   display: grid;
@@ -27,17 +29,6 @@ const ErrorText = styled.span`
   font-size: 12px;
 `;
 
-const newOrderSchema = z.object({
-  postalCode: z.string().min(8, { message: "CEP inválido" }),
-  street: z.string().min(4, { message: "Rua inválida" }),
-  number: z.string().min(1, { message: "Número inválido" }),
-  complement: z.string().min(4, { message: "Complemento inválido" }),
-  neighborhood: z.string().min(4, { message: "Bairro inválido" }),
-  fullName: z.string().min(2, { message: "Nome inválido" }),
-});
-
-type NewOrder = z.infer<typeof newOrderSchema>;
-
 interface FormProps {
   activePayment: string;
 }
@@ -46,6 +37,8 @@ function Form({ activePayment }: FormProps) {
   const { register, handleSubmit, formState: { errors } } = useForm<NewOrder>({
     resolver: zodResolver(newOrderSchema),
   });
+  const { setOrder } = useOrder();
+  const navigate = useNavigate();
 
   function onSubmit(data: NewOrder) {
     if (!activePayment) {
@@ -57,7 +50,8 @@ function Form({ activePayment }: FormProps) {
       ...data,
       payment: activePayment
     }
-    console.log(newOrder);
+    setOrder(newOrder);
+    navigate("/order");
   }
 
   return (

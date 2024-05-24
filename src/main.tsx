@@ -8,6 +8,7 @@ import Order from './pages/Order.tsx'
 import Cart from './pages/Cart.tsx'
 import { CartProvider } from './contexts/CartContext.tsx'
 import { Toaster } from 'sonner'
+import { OrderProvider } from './contexts/OrderContext.tsx'
 
 const router = createBrowserRouter([
   {
@@ -32,11 +33,13 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <CartProvider>
-      <RouterProvider router={router} />
-      <Toaster 
-        richColors
-      />
-    </CartProvider>
+    <OrderProvider>
+      <CartProvider>
+        <RouterProvider router={router} />
+        <Toaster 
+          richColors
+        />
+      </CartProvider>
+    </OrderProvider>
   </React.StrictMode>,
 )

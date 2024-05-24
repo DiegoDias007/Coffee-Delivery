@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { CoffeeWithCount } from "../@types/coffee-with-count";
+import { CoffeeWithCount } from "../@types/coffee-with-count.type";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 type CartContextType = {
