@@ -20,7 +20,11 @@ const Text = styled.span`
   font-size: 12px;
   font-weight: 400;
   line-height: 19.2px;
-  color: #574F4D;  
+  color: #574F4D;
+  
+  @media (max-width: 455px) {
+    display: none;
+  }
 `
 
 interface DeleteButtonProps {

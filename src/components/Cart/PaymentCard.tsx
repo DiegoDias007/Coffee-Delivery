@@ -11,6 +11,10 @@ const StyledPaymentCard = styled.div`
   gap: 32px;
   border-radius: 6px;
   background-color: #F3F2F2;
+
+  @media (max-width: 500px) {
+    padding: 20px 10px;
+  }
 `
 
 interface PaymentCardProps {
